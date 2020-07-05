@@ -1,0 +1,21 @@
+ALGORITHM algoHash
+VAR
+    sum,count : INTEGER:=0 ;
+
+    Set1  : ARRAY_OF INTEGER[100];
+    Set2  : ARRAY_OF INTEGER[100];
+    
+    
+    BEGIN
+    FOR i FROM 0 TO length.set1 STEP 1  DO
+        FOR j FROM 0 TO length.set2 STEP 1  DO
+        IF (set1[i]=set2[j]) THEN
+            count:=count+set[i]
+            i:=i+1
+        END_IF
+        sum:=count*2
+         END_FOR 
+     END_FOR
+         Write(' sum of overlapping elements' sum)
+
+END

@@ -1,0 +1,22 @@
+ALGORITHM algorithm2
+VAR
+    sum : INTEGER:=0 ;
+    Set1  : ARRAY_OF INTEGER[100];
+    Set2  : ARRAY_OF INTEGER[100];
+BEGIN
+    FOR i FROM 0 TO length.set1-1  DO
+        FOR j FROM 0 TO length.set2-1  DO
+            IF (set1[i]<>set2[j]) THEN
+                    sum:=sum+set2[j]
+                    // i:=i+1 ;
+                    j:=j+1 ;
+                ELSE
+                    sum:=sum+set1[i]
+                    i:=i+1 ;
+
+            END_IF
+        END_FOR
+
+    END_FOR
+    Write('sum of all distinct elements' sum)
+END
