@@ -4,18 +4,29 @@ VAR
 
     Set1  : ARRAY_OF INTEGER[100];
     Set2  : ARRAY_OF INTEGER[100];
-    
+    htab :  HASH_TABLE<INTEGER,INTEGER>
+    arr3 : ARRAY_OF integer[100];
     
     BEGIN
-    FOR i FROM 0 TO length.set1 STEP 1  DO
-        FOR j FROM 0 TO length.set2 STEP 1  DO
-        IF (set1[i]=set2[j]) THEN
-            count:=count+set[i]
-            i:=i+1
-        END_IF
-        sum:=count*2
-         END_FOR 
-     END_FOR
-         Write(' sum of overlapping elements' sum)
+    FOR i FROM 0 TO set1.length-1 DO
+      if(htab.lookup(set1[i])==true)THEN
+      count := htab.get(set1[i]) ; 
+      htab.insert(set1[i] , count + 1)
+       ELSE
+      htab.insert(set1[i] , 1 )
+END_IF
 
+     if(htab.lookup(set2[i])==true)THEN
+      count := htab.get(set2[i]) ; 
+      htab.insert(set2[i] , count + 1)
+       ELSE
+      htab.insert(set2[i] , 1 )
+    END_IF
+    arr3=htab.keys()
+          FOR j FROM 0 TO arr3 DO
+           if (htab.get[arr[j]==1])THEN
+           sum:=sum+htab[j]
+         END_FOR
+     END_FOR
+  Write('sum of overlapping elements' sum);
 END
